@@ -9,12 +9,6 @@ public class MessageRouter
     private readonly List<IMessageHandler> _handlers = new();
     private readonly RequestCounter _counter = new();
 
-    public MessageRouter(BotConfiguration config)
-    {
-        _handlers.Add(new StartHandler());
-        
-    }
-
     public async Task RouteAsync(string message, long chatId, ITelegramBotClient bot)
     {
         _counter.Increment();

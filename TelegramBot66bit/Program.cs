@@ -14,8 +14,7 @@ class Program
             .Build();
 
         var botConfig = config.GetSection("BotConfiguration").Get<BotConfiguration>()!;
-        var parser = new VacancyParser();
-        var commandHandler = new CommandHandler(parser);
+        var commandHandler = new CommandHandler();
 
         var botService = new BotService(botConfig, commandHandler);
         await botService.StartAsync();
